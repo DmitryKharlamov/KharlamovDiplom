@@ -1,4 +1,4 @@
-{% extends "admin/base_site.html" %} {% block title %}Django with Bootstrap | Admin site{% endblock %} {% block branding %}{% endblock %} {% block breadcrumbs %}{% endblock %} {% block bodyclass %}bg-light{% endblock %} {% block extrastyle %}
+{% extends "admin/base_site.html" %} {% block title %} Вход в систему | Admin site{% endblock %} {% block branding %}{% endblock %} {% block breadcrumbs %}{% endblock %} {% block bodyclass %}bg-light{% endblock %} {% block extrastyle %}
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 <style>
     #header,
@@ -27,48 +27,35 @@
 <div class="bg-white container">
 
     <div class="jumbotron">
-        <h1 class="display-4">Hotel Management System - Admin</h1>
+        <h1 class="display-4">Система управления отелем - Admin</h1>
     </div>
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
                 <a class="nav-link text-primary" href="/">
-              Go to Home
+              Главная страница
             </a>
                 <li class="nav-item">
                     <a class="nav-link text-primary" href="/admin/">
-              Go to Admin Panel
+              Администрирование сайта
             </a>
                     <li class="nav-item">
                         <a class="nav-link text-primary" href="/admin/user/">
-              Go to USER
+              Администрирование пользователей
             </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-primary" href="/admin/hotel/">
-              Go to HOTEL
-            </a>
-                    </li>
+              Администрирование номеров. Обращения.
+            </a>        </li>
                     {% if user.is_authenticated %}
-                    <li class="nav-item dropdown">
-                        <a aria-expanded="false" aria-haspopup="true" class="font-weight-bold nav-link text-primary dropdown-toggle" data-toggle="dropdown" href="#" role="button">
-              Admin
-            </a>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="/admin/user/">
-                Manage USER
-              </a>
-                            <a class="dropdown-item" href="/admin/hotel/">
-                Manage HOTEL
-              </a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="/admin/logout/">
-                Logout
-              </a>
-                        </div>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-primary" href="/admin/logout/">
+              Выход из системы управления
                     {% endif %}
+
         </ul>
     </nav>
     {% endblock %} {% block bodyfooter %}

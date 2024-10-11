@@ -1,6 +1,5 @@
 from django.db import models
 
-# Create your models here.
 
 class User(models.Model):
     userName = models.CharField(max_length=200)
@@ -9,17 +8,13 @@ class User(models.Model):
     role = models.CharField(max_length=50, null=True)
     password = models.CharField(max_length=200)
     email = models.EmailField(max_length=200)
-
-
     img=models.ImageField(upload_to='images/User',null=True,blank=True)
     about = models.TextField(null=True,blank=True)
     adress = models.CharField(max_length=200,blank=True)
 
-
-
-
     def __str__(self):
         return self.userName
+
 
 class Erreur(models.Model):
     url = models.CharField(max_length=200)

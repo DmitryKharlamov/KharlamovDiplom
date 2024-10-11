@@ -31,41 +31,41 @@
                 <!-- Contact Card -->
                 <div class="card border-0 p-2 p-md-3 p-lg-5">
                     <div class="card-header bg-white border-0 text-center">
-                        <h2>Contact US </h2>
-                        <p>Need help? Ask us!</p>
+                        <h2>Контакты </h2>
+                        <p>Есть вопросы? Свяжитесь с нами!</p>
                     </div>
                     <div class="card-body px-0 pt-0">
                         <form action="" method="post">
                             {% csrf_token %}
                             <!-- Form -->
                             <div class="mb-4">
-                                <label for="name">Your Name</label>
+                                <label for="name">Ваше имя</label>
                                 <div class="input-group">
                                     <span class="input-group-text" id="basic-addon3"><span class="fas fa-user-circle"></span></span>
                                     {% if request.session.fName %}
                                     <input type="text" class="form-control" value="{{ request.session.fName }} {{request.session.lName}}" name="name" required="">{% else %}
-                                    <input type="text" class="form-control" placeholder="ex: Majdar Soufiane" name="name" required="">{% endif %}
+                                    <input type="text" class="form-control" placeholder="Введите ваше имя" name="name" required="">{% endif %}
                                 </div>
                             </div>
                             <!-- End of Form -->
                             <!-- Form -->
                             <div class="mb-4">
-                                <label for="email">Your Email</label>
+                                <label for="email">Ваша почта</label>
                                 <div class="input-group">
                                     <span class="input-group-text" id="basic-addon4"><span class="fas fa-envelope"></span></span>
                                     {% if request.session.email %}
                                     <input type="email" class="form-control" value="{{ request.session.email}}" name="email" required=""> {% else %}
-                                    <input type="email" class="form-control" placeholder="example@company.com" name="email" required=""> {% endif %}
+                                    <input type="email" class="form-control" placeholder="Введите вашу электронную почту" name="email" required=""> {% endif %}
                                 </div>
                             </div>
                             <!-- End of Form -->
                             <div class="mb-4">
-                                <label for="message">Your Message</label>
-                                <textarea placeholder="Your message" class="form-control" name="message" rows="4" required=""></textarea>
+                                <label for="message">Сообщение</label>
+                                <textarea placeholder="Напишите вопрос или другой способ связаться с вами" class="form-control" name="message" rows="4" required=""></textarea>
                             </div>
                             <!-- End of Form -->
                             <div class="d-grid">
-                                <button type="submit" class="btn rounded btn-secondary">Send message</button>
+                                <button type="submit" class="btn rounded btn-secondary">Заказать звонок</button>
                             </div>
                         </form>
                     </div>
