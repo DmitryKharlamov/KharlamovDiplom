@@ -8,6 +8,9 @@
     <title>Room Detail</title>
 
     <!-- Main StyleSheet -->
+    <!-- Lightbox CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/lightbox2@2.11.3/dist/css/lightbox.min.css" rel="stylesheet">
+
 
 
 
@@ -26,10 +29,18 @@
     <link type="text/css" href="/static/assets/css/pixel.css" rel="stylesheet">
 
     <!-- simple CSS -->
+    <style>
+        .img-thumbnail {
+            width: 16;
+            height: 16;
+            margin-right: 10px; /* можете настроить отступы по вашему усмотрению */
+        }
+    </style>
 
 </head>
 
 <body>
+
 <!-- Navbar -->
     <header class="header-global bg-dark my-5">
         <nav id="navbar-main" class="navbar navbar-main navbar-expand-lg navbar-theme-primary headroom navbar-dark">
@@ -93,16 +104,39 @@
 
 
                     <h2>{{room.name}}</h2>
-                    <p><img class="rounded" width="500px" src="{{room.img}}" alt="Themesberg office"></p>
+
+    {% if room.img_main %}
+        <a href="{{ room.img_main.url }}" data-lightbox="room-gallery">
+            <img src="{{ room.img_main.url }}" alt="Main Room Image" class="img-thumbnail" style="max-width: 100%; height:auto ; margin-right: 10px;">
+        </a>
+    {% endif %}
+</span></p>
+    {% if room.img_2 %}
+        <a href="{{ room.img_2.url }}" data-lightbox="room-gallery">
+            <img src="{{ room.img_2.url }}" alt="Room Image 2" class="img-thumbnail" style="max-width: 100%; height:auto; margin-right: 10px;">
+        </a>
+    {% endif %}
+</span></p>
+    {% if room.img_3 %}
+        <a href="{{ room.img_3.url }}" data-lightbox="room-gallery">
+            <img src="{{ room.img_3.url }}" alt="Room Image 3" class="img-thumbnail" style="max-width: 100%; height:auto; margin-right: 10px;">
+        </a>
+    {% endif %}
+
+</span></p>
+
+
+
+
 
 
 
 
 
                     <p> <span class="room-description">{{ room.Description }}</span></p>
-                    <p class="mt-5"><strong>Категория:</strong> {{ room.get_category_display }}</p>
+
                     <ul>
-                        <li>Категория: {{room.category}}</li>
+                        <li>Категория: {{ room.get_category_display }}</li>
                         <li>Цена: {{room.price}} ₽</li>
                         <li>Количество спальных мест: {{room.beds}}</li>
                         <li>Вместимость: {{room.capacity}}</li>
@@ -116,20 +150,20 @@
 
                         <!-- Input Div -->
                         <div class="form-group">
-                            <label for="id_check_in" class="h6">Check In : </label>
+                            <label for="id_check_in" class="h6">Заезд : </label>
                             <input type="datetime-local" class="form-control datepicker-input" id="id_check_in" name="check_in">
                         </div>
 
                         <!-- Input Div -->
                         <div class="form-group mt-0">
-                            <label for="id_check_in" class="h6">Check Out : </label>
+                            <label for="id_check_in" class="h6">Выезд : </label>
                             <input type="datetime-local" class="form-control datepicker-input" id="id_check_out " name="check_out">
                         </div>
 
 
 
                         <!-- Input Div -->
-                        <button class="btn mt-4 btn-outline-primary type=" submit ">Book the Room</button>
+                        <button class="btn mt-4 btn-outline-primary type=" submit ">Забронировать</button>
 
 
                     </form>
@@ -173,5 +207,7 @@
         </div>
     </footer>
 </body>
+<!-- Lightbox JS -->
+<script src="https://cdn.jsdelivr.net/npm/lightbox2@2.11.3/dist/js/lightbox.min.js"></script>
 
 </html>

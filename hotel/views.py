@@ -1,6 +1,3 @@
-from email import message
-from multiprocessing import context
-from urllib import request
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from django.views.generic import ListView, FormView, View
@@ -8,9 +5,10 @@ from .models import Room,Booking,Contact
 from user.models import User
 from .forms import AvailabilityForm
 from .booking_functions.availability import check_availability
-from  django.core.paginator import  Paginator,EmptyPage,PageNotAnInteger
+from django.core.paginator import  Paginator,EmptyPage,PageNotAnInteger
 
 # Create your views here.
+
 
 def RoomListView(request):
     # load Room
@@ -85,7 +83,7 @@ class RoomDetailView(View):
                         check_out=data['check_out']
                     )
                     booking.save()
-                    message=["You have booked this Room successfuly.",'success']
+                    message=["Вы забронировали номер",'Успешно']
                     if len(room_list)>0:
                         room= room_list[0]
                         context ={
@@ -98,7 +96,7 @@ class RoomDetailView(View):
 
                     return render(self.request,"hotel/room_detail_view.html",context)
             else:
-                    message=["this rooms is booked.try another time line or deferante category",'Error']
+                    message=["Этот номер забронирован. Попытайтесь выбрать другое время или другой номер.",'Ошибка']
                     if len(room_list)>0:
                         room= room_list[0]
                         context ={
@@ -113,7 +111,7 @@ class RoomDetailView(View):
             room_list = Room.objects.filter(number=num)
             form = AvailabilityForm(request.POST)
 
-            message=["You have to login first",'Error']
+            message=["Для бронирования номеров, вам нужно зарегистрироваться",'Ошибка']
             if len(room_list)>0:
                 room= room_list[0]
                 context ={
@@ -167,7 +165,7 @@ def contact(request):
             ### Create object
             c=Contact(name=request.POST['name'],email=request.POST['email'],message=request.POST['message'])
             c.save()
-            message=['Your mesage has been submitted  successfully!','success']
+            message=['Ваше сообщение доставлено!','Успешно']
 
             return render(request,"home/contact.html",{'title':title,'message':message})
         except Exception as e:

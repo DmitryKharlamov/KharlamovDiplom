@@ -55,7 +55,7 @@ def login(request):
             else:
              # User not found email or psss word incorect:
              title="Login"#
-             message=['email or psss word incorect!','danger']
+             message=['Неверный логин или пароль','danger']
              return render(request,'user/login.html',{'title':title,'message':message})
         ### if it's not Post method
         else:
@@ -77,7 +77,7 @@ def signup(request):
             check_user=User.objects.filter(email=request.POST['email'])
             if check_user:
                     title="signup"
-                    message=['Email already exists .']
+                    message=['Аккаунт с такой почтой уже существует.']
                     return render(request,"user/signup.html",{'title':title,'message':message})
             else:
                 ### Try to push user to database
@@ -86,7 +86,7 @@ def signup(request):
                     ### Create object
                     u=User(userName=request.POST['userName'],fName=request.POST['fName'],lName=request.POST['lName'],email=request.POST['email'],password=request.POST['password'],role="client")
                     u.save()
-                    message=['Your acount has been created  successfully!','success']
+                    message=['Ваш аккаунт успешно создан!','Успешно']
 
                     return render(request,"user/signup.html",{'title':title,'message':message})
 

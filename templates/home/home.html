@@ -17,19 +17,19 @@
             <div class="row mb-5"> {% for h in Hotels|slice:"0:3" %}
                 <!-- Hotel -->
                 <div class="col-12 col-md-6 col-lg-4 mb-5 mb-lg-0">
-                    <div class="card shadow">
-                        <img src="{{h.img}}" class="card-img-top rounded-top" alt="Themesberg office" width="auto" height="163px">
+                    <div class="card shadow h-100">
+                        <img src="{{ h.img_main.url }}" class="card-img-top rounded-top" alt="Themesberg office" width="auto" height="163px">
                         <div class="card-body">
                             <div class="d-flex g-0 align-items-center mb-2">
                                 <!-- Hotel name -->
                                 <div class="col text-left">
-                                    <h3 class="h5 card-title text-200"> {{h.name}}</h3>
+                                    <h3 class="h5 card-title text-500"> {{h.name}}</h3>
                                 </div>
                             </div>
                             <!-- Price -->
                             <div class="text-left my-2">
 
-                                        </svg></span>{{h.price}}</span>
+                                        </svg></span>{{h.price}} ₽</span>
                             </div>
 
 
@@ -47,8 +47,8 @@
             <div class="row mb-5"> {% for h in Hotels|slice:"3:6" %}
                 <!-- Hotel -->
                 <div class="col-12 col-md-6 col-lg-4 mb-5 mb-lg-0">
-                    <div class="card shadow">
-                        <img src="{{h.img}}" class="card-img-top rounded-top" alt="Themesberg office" width="auto" height="163px">
+                    <div class="card shadow h-100">
+                        <img src="{{h.img_main.url}}" class="card-img-top rounded-top" alt="Themesberg office" width="auto" height="163px">
                         <div class="card-body">
                             <div class="d-flex g-0 align-items-center mb-2">
                                 <!-- Hotel name -->
@@ -59,7 +59,7 @@
                             <!-- Price -->
                             <div class="text-left my-2">
 
-                                        </svg></span>{{h.price}}</span>
+                                        </svg></span>{{h.price}} ₽</span>
                             </div>
 
 
@@ -76,8 +76,8 @@
             <div class="row mb-5"> {% for h in Hotels|slice:"6:9" %}
                 <!-- Hotel -->
                 <div class="col-12 col-md-6 col-lg-4 mb-5 mb-lg-0">
-                    <div class="card shadow">
-                        <img src="{{h.img}}" class="card-img-top rounded-top" alt="Themesberg office" width="auto" height="163px">
+                    <div class="card shadow h-100">
+                        <img src="{{h.img_main.url}}" class="card-img-top rounded-top" alt="Themesberg office" width="auto" height="163px">
                         <div class="card-body">
                             <div class="d-flex g-0 align-items-center mb-2">
                                 <!-- Hotel name -->
@@ -88,7 +88,7 @@
                             <!-- Price -->
                             <div class="text-left my-2">
 
-                                        </svg></span>{{h.price}}</span>
+                                        </svg></span>{{h.price}} ₽</span>
                             </div>
 
 
