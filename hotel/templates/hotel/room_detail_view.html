@@ -99,8 +99,8 @@
 
 
 
-                    <br> {{room.Description |safe}}
-
+                    <p> <span class="room-description">{{ room.Description }}</span></p>
+                    <p class="mt-5"><strong>Категория:</strong> {{ room.get_category_display }}</p>
                     <ul>
                         <li>Категория: {{room.category}}</li>
                         <li>Цена: {{room.price}} ₽</li>
